@@ -11,11 +11,12 @@ namespace HackerNews.Skills
 {
     class Program
     {
+		public static Dictionary<string, int> results = new Dictionary<string, int>() { };
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
-            var reader = new PostReader(100, CommentLevel.FirstLevel);
+            var reader = new PostReader(0, CommentLevel.FirstLevel);
 			var post = reader.GetById(new int[] { 19797594 }, new CancellationToken()).First();
 
 			var config = new ConfigurationBuilder().AddJsonFile("settings.json").Build();
